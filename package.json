@@ -1,0 +1,13 @@
+{
+  "name": "@bajetech/digitalbits-wallet-sdk",
+  "version": "0.0.0",
+  "description": "A library to make it easier to write wallets that interact with the DigitalBits blockchain",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:bajetech/js-digitalbits-wallets.git",
+  "author": "BajeTech <hello@bajetech.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
