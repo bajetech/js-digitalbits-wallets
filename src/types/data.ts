@@ -1,5 +1,23 @@
 import BigNumber from "bignumber.js";
-import { AssetType, Frontier, Memo, MemoType } from "xdb-digitalbits-sdk";
+import {
+  AssetType,
+  BadRequestError,
+  Frontier,
+  Memo,
+  MemoType,
+  NetworkError,
+  NotFoundError,
+  ServerApi,
+} from "xdb-digitalbits-sdk";
+
+interface NotFundedError {
+  isUnfunded: boolean;
+}
+
+export type FetchAccountError =
+  | BadRequestError
+  | NetworkError
+  | (NotFoundError & NotFundedError);
 
 export type TradeId = string;
 export type OfferId = string;
@@ -110,4 +128,30 @@ export interface NativeBalance extends Balance {
 export interface BalanceMap {
   [key: string]: AssetBalance | NativeBalance;
   native: NativeBalance;
+}
+
+export interface AccountDetails {
+  id: string;
+  subentryCount: number;
+  sponsoringCount: number;
+  sponsoredCount: number;
+  sponsor?: string;
+  inflationDestination?: string;
+  thresholds: Frontier.AccountThresholds;
+  signers: ServerApi.AccountRecordSigners[];
+  flags: Frontier.Flags;
+  balances: BalanceMap;
+  sequenceNumber: string;
+}
+
+export interface CollectionParams {
+  limit?: number;
+  order?: "desc" | "asc";
+  cursor?: string;
+}
+
+export interface Collection<Record> {
+  next: () => Promise<Collection<Record>>;
+  prev: () => Promise<Collection<Record>>;
+  records: Record[];
 }

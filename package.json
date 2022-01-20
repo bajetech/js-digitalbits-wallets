@@ -19,6 +19,7 @@
     "xdb-digitalbits-sdk/axios": "0.22.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.178",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^8.7.0",
@@ -30,6 +31,7 @@
   "dependencies": {
     "@bajetech/astrax-api": "^1.0.4",
     "bignumber.js": "^9.0.2",
+    "lodash": "^4.17.21",
     "tslib": "^2.3.1",
     "xdb-digitalbits-sdk": "^8.2.2"
   },
