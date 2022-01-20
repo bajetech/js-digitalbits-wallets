@@ -1,4 +1,5 @@
 import { Asset, Frontier } from "xdb-digitalbits-sdk";
+import { NATIVE_ASSET_IDENTIFIER } from "../constants/digitalbits";
 import { AssetToken, Token } from "../types";
 
 /**
@@ -7,8 +8,8 @@ import { AssetToken, Token } from "../types";
  * `${tokenCode}:${issuerKey}`.
  */
 export function getTokenIdentifier(token: Token): string {
-  if (token.type === "native") {
-    return "native";
+  if (token.type === NATIVE_ASSET_IDENTIFIER) {
+    return NATIVE_ASSET_IDENTIFIER;
   }
 
   return `${token.code}:${(token as AssetToken).issuer.key}`;
@@ -22,14 +23,14 @@ export function getTokenIdentifier(token: Token): string {
  */
 export function getBalanceIdentifier(balance: Frontier.BalanceLine): string {
   if ("asset_issuer" in balance && !balance.asset_issuer) {
-    return "native";
+    return NATIVE_ASSET_IDENTIFIER;
   }
   switch (balance.asset_type) {
     case "credit_alphanum4":
     case "credit_alphanum12":
       return `${balance.asset_code}:${balance.asset_issuer}`;
     default:
-      return "native";
+      return NATIVE_ASSET_IDENTIFIER;
   }
 }
 
@@ -38,7 +39,7 @@ export function getBalanceIdentifier(balance: Frontier.BalanceLine): string {
  * @returns Returns `${tokenCode}:${issuerKey}`.
  */
 export function getDigitalBitsSdkAsset(token: Token): Asset {
-  if (token.type === "native") {
+  if (token.type === NATIVE_ASSET_IDENTIFIER) {
     return Asset.native();
   }
 

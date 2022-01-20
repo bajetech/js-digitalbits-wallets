@@ -1,7 +1,11 @@
 import BigNumber from "bignumber.js";
-import { Frontier, ServerApi } from "xdb-digitalbits-sdk";
+import { Asset, Frontier, ServerApi } from "xdb-digitalbits-sdk";
 import { getBalanceIdentifier } from ".";
-import { BASE_RESERVE, BASE_RESERVE_MIN_COUNT } from "../constants/digitalbits";
+import {
+  BASE_RESERVE,
+  BASE_RESERVE_MIN_COUNT,
+  NATIVE_ASSET_IDENTIFIER,
+} from "../constants/digitalbits";
 import { BalanceMap } from "../types";
 
 export function makeDisplayableBalances(
@@ -28,14 +32,14 @@ export function makeDisplayableBalances(
         buyingLiabilities = new BigNumber(balance.buying_liabilities);
       }
 
-      if (identifier === "native") {
+      if (identifier === NATIVE_ASSET_IDENTIFIER) {
         // define the native balance line later
         return {
           ...memo,
           native: {
             token: {
-              type: "native",
-              code: "XDB",
+              type: NATIVE_ASSET_IDENTIFIER,
+              code: Asset.native().getCode(),
             },
             total,
             available,

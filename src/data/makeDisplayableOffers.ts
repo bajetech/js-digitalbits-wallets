@@ -1,7 +1,8 @@
 import BigNumber from "bignumber.js";
-import { AssetType, ServerApi } from "xdb-digitalbits-sdk";
+import { Asset, AssetType, ServerApi } from "xdb-digitalbits-sdk";
 import { makeDisplayableTrades } from "./makeDisplayableTrades";
 import { Account, Offer, Token, Trade } from "../types";
+import { NATIVE_ASSET_IDENTIFIER } from "../constants/digitalbits";
 
 export type TradeCollection = ServerApi.TradeRecord[];
 
@@ -43,9 +44,9 @@ export function makeDisplayableOffers(
 
     const paymentToken: Token = {
       type: selling.asset_type as AssetType,
-      code: (selling.asset_code as string) || "XDB",
+      code: (selling.asset_code as string) || Asset.native().getCode(),
       issuer:
-        selling.asset_type === "native"
+        selling.asset_type === NATIVE_ASSET_IDENTIFIER
           ? undefined
           : {
               key: selling.asset_issuer as string,
@@ -54,9 +55,9 @@ export function makeDisplayableOffers(
 
     const incomingToken: Token = {
       type: buying.asset_type as AssetType,
-      code: (buying.asset_code as string) || "XDB",
+      code: (buying.asset_code as string) || Asset.native().getCode(),
       issuer:
-        buying.asset_type === "native"
+        buying.asset_type === NATIVE_ASSET_IDENTIFIER
           ? undefined
           : {
               key: buying.asset_issuer as string,

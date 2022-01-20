@@ -1,5 +1,6 @@
 import BigNumber from "bignumber.js";
-import { AssetType, ServerApi } from "xdb-digitalbits-sdk";
+import { Asset, AssetType, ServerApi } from "xdb-digitalbits-sdk";
+import { NATIVE_ASSET_IDENTIFIER } from "../constants/digitalbits";
 import { Account, Payment, Token } from "../types";
 
 function isCreateAccount(
@@ -81,14 +82,14 @@ export async function makeDisplayablePayments(
 
         const token: Token = isCreateAccount(payment)
           ? {
-              type: "native" as AssetType,
-              code: "XDB",
+              type: NATIVE_ASSET_IDENTIFIER as AssetType,
+              code: Asset.native().getCode(),
             }
           : {
               type: payment.asset_type as AssetType,
-              code: payment.asset_code || "XDB",
+              code: payment.asset_code || Asset.native().getCode(),
               issuer:
-                payment.asset_type === "native"
+                payment.asset_type === NATIVE_ASSET_IDENTIFIER
                   ? undefined
                   : {
                       key: payment.asset_issuer as string,
@@ -129,9 +130,9 @@ export async function makeDisplayablePayments(
           sourceToken: isPathPayment(payment)
             ? {
                 type: payment.source_asset_type as AssetType,
-                code: payment.source_asset_code || "XDB",
+                code: payment.source_asset_code || Asset.native().getCode(),
                 issuer:
-                  payment.source_asset_type === "native"
+                  payment.source_asset_type === NATIVE_ASSET_IDENTIFIER
                     ? undefined
                     : {
                         key: payment.source_asset_issuer as string,

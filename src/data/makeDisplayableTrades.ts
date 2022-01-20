@@ -1,5 +1,6 @@
 import BigNumber from "bignumber.js";
-import { AssetType, ServerApi } from "xdb-digitalbits-sdk";
+import { Asset, AssetType, ServerApi } from "xdb-digitalbits-sdk";
+import { NATIVE_ASSET_IDENTIFIER } from "../constants/digitalbits";
 import { Account, Token, Trade } from "../types";
 
 export function makeDisplayableTrades(
@@ -20,9 +21,9 @@ export function makeDisplayableTrades(
 
     const baseToken: Token = {
       type: trade.base_asset_type as AssetType,
-      code: (trade.base_asset_code as string) || "XDB",
+      code: (trade.base_asset_code as string) || Asset.native().getCode(),
       issuer:
-        trade.base_asset_type === "native"
+        trade.base_asset_type === NATIVE_ASSET_IDENTIFIER
           ? undefined
           : {
               key: trade.base_asset_issuer as string,
@@ -31,9 +32,9 @@ export function makeDisplayableTrades(
 
     const counterToken: Token = {
       type: trade.counter_asset_type as AssetType,
-      code: (trade.counter_asset_code as string) || "XDB",
+      code: (trade.counter_asset_code as string) || Asset.native().getCode(),
       issuer:
-        trade.counter_asset_type === "native"
+        trade.counter_asset_type === NATIVE_ASSET_IDENTIFIER
           ? undefined
           : {
               key: trade.counter_asset_issuer as string,
