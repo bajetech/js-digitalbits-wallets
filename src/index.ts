@@ -24,3 +24,11 @@ export { DataProvider } from "./data/DataProvider";
 /**
  * Key Management
  */
+export { KeyManager } from "./KeyManager";
+
+export { KeyManagerPlugins } from "./KeyManagerPlugins";
+
+/**
+ * Helpers
+ */
+export { getKeyMetadata } from "./helpers/getKeyMetadata";
