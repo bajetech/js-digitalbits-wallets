@@ -1,5 +1,9 @@
 ## In main
 
+## v0.0.2
+
+No code update. Just a patch to the README.
+
 ## v0.0.1
 
 Initial (official) release! 🎉
