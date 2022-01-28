@@ -46,9 +46,6 @@ export function makeDisplayableBalances(
             sellingLiabilities,
             buyingLiabilities,
 
-            /* tslint:disable */
-            // https://developers.stellar.org/docs/glossary/sponsored-reserves/#sponsorship-effect-on-minimum-balance
-            /* tslint:enable */
             minimumBalance: new BigNumber(BASE_RESERVE_MIN_COUNT)
               .plus(subentry_count)
               .plus(num_sponsoring)
