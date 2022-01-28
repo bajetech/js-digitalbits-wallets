@@ -8,7 +8,8 @@
   "author": "BajeTech <hello@bajetech.com>",
   "license": "Apache-2.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch",
+    "test:ci": "jest"
   },
   "keywords": [
     "blockchain",
@@ -19,13 +20,24 @@
     "xdb-digitalbits-sdk/axios": "0.22.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.0",
     "@types/lodash": "^4.14.178",
+    "@types/sinon": "^10.0.8",
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
+    "babel-jest": "^27.4.6",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.4.7",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-mock-random": "^1.1.1",
     "prettier": "^2.5.1",
+    "regenerator-runtime": "^0.13.9",
+    "sinon": "^12.0.1",
     "typescript": "^4.5.4"
   },
   "dependencies": {
