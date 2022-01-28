@@ -2,14 +2,22 @@
   "name": "@bajetech/digitalbits-wallet-sdk",
   "version": "0.0.0",
   "description": "A library to make it easier to write wallets that interact with the DigitalBits blockchain",
-  "main": "lib/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "CHANGELOG.md",
+    "dist/**"
+  ],
   "repository": "git@github.com:bajetech/js-digitalbits-wallets.git",
   "author": "BajeTech <hello@bajetech.com>",
   "license": "Apache-2.0",
   "scripts": {
+    "prepublishOnly": "shx rm -rf dist/ && yarn build && yarn build:commonjs",
+    "build": "tsc --project tsconfig.json",
+    "build:commonjs": "webpack --mode production",
     "lint": "eslint --ext .ts ./src",
     "lintAndTest": "yarn lint && yarn test:ci",
+    "prettier": "prettier --write '**/*.{js,ts,md}'",
     "test": "jest --watch",
     "test:ci": "jest"
   },
@@ -32,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "babel-jest": "^27.4.6",
+    "babel-loader": "^8.2.3",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
@@ -39,10 +48,15 @@
     "jest-fetch-mock": "^3.0.3",
     "jest-mock-random": "^1.1.1",
     "node-localstorage": "^2.2.1",
+    "node-polyfill-webpack-plugin": "^1.1.4",
     "prettier": "^2.5.1",
     "regenerator-runtime": "^0.13.9",
+    "shx": "^0.3.4",
     "sinon": "^12.0.1",
-    "typescript": "^4.5.4"
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
     "@bajetech/astrax-api": "^1.0.4",
