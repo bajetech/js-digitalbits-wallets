@@ -32,6 +32,7 @@ export const ScryptEncrypter: Encrypter = {
 
   async decryptKey(params: DecryptParams) {
     const { encryptedKey, password } = params;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { encrypterName, salt, encryptedBlob, ...props } = encryptedKey;
 
     const data = JSON.parse(

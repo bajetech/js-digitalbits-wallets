@@ -27,6 +27,7 @@ export const IdentityEncrypter: Encrypter = {
 
   decryptKey(params: DecryptParams) {
     const { encryptedKey } = params;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { encrypterName, salt, encryptedBlob, ...props } =
       encryptedKey as any;
 

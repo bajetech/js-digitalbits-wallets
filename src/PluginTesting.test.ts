@@ -141,8 +141,8 @@ describe("testKeyStore", () => {
   }
 
   let storage: any = {};
-  let skipStorageChecks: boolean = false;
-  let skipUpdateChecks: boolean = false;
+  let skipStorageChecks = false;
+  let skipUpdateChecks = false;
 
   const goodKeyStore = {
     name: "goodKeyStore",

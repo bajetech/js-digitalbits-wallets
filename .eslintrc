@@ -5,7 +5,6 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
-    "react-app",
     "prettier"
   ],
   "env": {
@@ -27,7 +26,8 @@
         "ignoreParameters": true
       }
     ],
-    "no-shadow": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
     "import/no-cycle": "error",
     "import/no-unresolved": "error",
     "import/no-unused-modules": ["off", { "unusedExports": true }],
