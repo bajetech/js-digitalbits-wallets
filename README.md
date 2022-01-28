@@ -3,8 +3,8 @@
 > A library to make it easier to write wallets that interact with the DigitalBits blockchain.
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@bajetech/js-digitalbits-wallets">
-    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@bajetech/js-digitalbits-wallets?style=for-the-badge">
+  <a href="https://www.npmjs.com/package/@bajetech/digitalbits-wallet-sdk">
+    <img alt="npm (scoped)" src="https://img.shields.io/npm/v/@bajetech/digitalbits-wallet-sdk?style=for-the-badge">
   </a>
   <a href="https://nodejs.org">
     <img alt="Node.js" src="https://img.shields.io/badge/node->=14-yellowgreen?style=for-the-badge&labelColor=000000">
