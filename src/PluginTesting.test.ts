@@ -205,7 +205,7 @@ describe("testKeyStore", () => {
   let clock: sinon.SinonFakeTimers;
 
   beforeEach(() => {
-    clock = sinon.useFakeTimers(666);
+    clock = sinon.useFakeTimers();
 
     // clear storage
     storage = {};

@@ -13,7 +13,7 @@ describe("KeyManager", function () {
   mockRandomForEach([0.5]);
 
   beforeEach(() => {
-    clock = sinon.useFakeTimers(666);
+    clock = sinon.useFakeTimers();
   });
 
   afterEach(() => {
@@ -233,7 +233,7 @@ describe("KeyManager Scrypt", () => {
   mockRandomForEach([0.5]);
 
   beforeEach(() => {
-    clock = sinon.useFakeTimers(666);
+    clock = sinon.useFakeTimers();
   });
 
   afterEach(() => {
@@ -299,7 +299,7 @@ describe("KeyManager Scrypt, multiple keys with different passwords", () => {
   let clock: sinon.SinonFakeTimers;
 
   beforeEach(() => {
-    clock = sinon.useFakeTimers(666);
+    clock = sinon.useFakeTimers();
   });
 
   afterEach(() => {
