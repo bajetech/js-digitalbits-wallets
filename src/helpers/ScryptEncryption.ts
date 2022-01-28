@@ -1,7 +1,7 @@
 import scrypt from "scrypt-async";
 import nacl from "tweetnacl";
 import naclutil from "tweetnacl-util";
-import Coder from "@stablelib/base64";
+import { encode, decode } from "@stablelib/base64";
 
 export interface ScryptPassParams {
   password: string;
@@ -65,7 +65,7 @@ function scryptPass(params: ScryptPassParams): Promise<Uint8Array> {
 }
 
 function generateSalt(): string {
-  return Coder.encode(nacl.randomBytes(SALT_BYTES));
+  return encode(nacl.randomBytes(SALT_BYTES));
 }
 
 /**
@@ -98,7 +98,7 @@ export async function encrypt(params: EncryptParams): Promise<EncryptResponse> {
   bundle.set(cipherText, 1 + secretboxNonce.length);
 
   return {
-    encryptedPhrase: Coder.encode(bundle),
+    encryptedPhrase: encode(bundle),
     salt: secretboxSalt,
   };
 }
@@ -107,7 +107,7 @@ export async function decrypt(params: DecryptParams): Promise<string> {
   const { phrase, password, salt } = params;
   const scryptedPass = await scryptPass({ password, salt });
 
-  const bundle = Coder.decode(phrase);
+  const bundle = decode(phrase);
   const version = bundle[0];
   let decryptedBytes;
   if (version === CRYPTO_V1) {

@@ -29,6 +29,11 @@ export { KeyManager } from "./KeyManager";
 export { KeyManagerPlugins } from "./KeyManagerPlugins";
 
 /**
+ * Plugin Testing
+ */
+export { testEncrypter, testKeyStore } from "./PluginTesting";
+
+/**
  * Helpers
  */
 export { getKeyMetadata } from "./helpers/getKeyMetadata";
