@@ -1,5 +1,9 @@
 ## In main
 
+## v0.0.3
+
+- bump AstraX API dependency to v1.0.5 [8ce49a4]
+
 ## v0.0.2
 
 No code update. Just a patch to the README.
