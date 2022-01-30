@@ -2,7 +2,7 @@
 
 ## v0.0.3
 
-- bump AstraX API dependency to v1.0.5 [8ce49a4]
+- bump AstraX API dependency to v1.0.5 [702498f]
 
 ## v0.0.2
 
