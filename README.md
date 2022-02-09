@@ -14,6 +14,14 @@
   </a>
 </p>
 
+## Installation
+
+```bash
+yarn add @bajetech/digitalbits-wallet-sdk  # or npm i @bajetech/digitalbits-wallet-sdk
+```
+
+## Usage
+
 This library provides straightforward APIs for handling the following tasks:
 
 - Fetching and formatting data from the DigitalBits blockchain network
@@ -40,16 +48,14 @@ cases (particularly around offer / trade history), properties were renamed for
 clarity.
 
 ```js
-import {
-  getTokenIdentifier,
-  getBalanceIdentifier,
-  DataProvider,
-} from "@bajetech/digitalbits-wallet-sdk";
+import { DataProvider } from "@bajetech/digitalbits-wallet-sdk";
+import { Networks } from "xdb-digitalbits-sdk";
 
 // You'll use your DataProvider instance to ask for data from DigitalBits.
 const dataProvider = new DataProvider({
   serverUrl: "https://frontier.livenet.digitalbits.io",
   accountOrKey: "<<Insert public key>>",
+  networkPassphrase: Networks.PUBLIC,
 });
 
 // Some class functions will fetch data directly.
