@@ -1,6 +1,6 @@
 {
   "name": "@bajetech/digitalbits-wallet-sdk",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A library to make it easier to write wallets that interact with the DigitalBits blockchain",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
