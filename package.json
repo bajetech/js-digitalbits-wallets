@@ -6,7 +6,9 @@
   "types": "dist/index.d.ts",
   "files": [
     "CHANGELOG.md",
-    "dist/**"
+    "dist/**",
+    "src/**",
+    "scrypt-async.d.ts"
   ],
   "repository": "git@github.com:bajetech/js-digitalbits-wallets.git",
   "author": "BajeTech <hello@bajetech.com>",
